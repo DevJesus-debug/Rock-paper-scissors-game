@@ -10,12 +10,24 @@ body{
     height: 100vh;
 }
 
+:root{
+    --lizard-background-color:hsl(261, 73%, 60%);
+    --lizard-border-color:hsl(261, 100%, 72%);
+    --paper-background-color:hsl(230, 64%, 43%);
+    --paper-border-color:hsl(230, 89%, 62%);
+    --rock-background-color:hsl(349, 71%, 38%);
+    --rock-border-color: hsl(349, 71%, 52%);
+    --spock-background-color:hsl(189, 90%, 36%);
+    --spock-border-color: hsl(189, 58%, 57%);
+    --scissors-background-color:hsl(39, 88%, 42%);
+    --scissors-border-color: hsl(40, 78%, 52%);
+}
+
 header{
     width: 100%;
     height: 25vh;
     display: flex;
     align-items: flex-end;
-    background-color: red;
 }
 
 nav{
@@ -53,7 +65,125 @@ nav .scoreboard .score-number{
     font-size: 2.7rem;
 }
 
-main .button-cont{
+main{
+    width: 100%;
+    height: 75vh;
+    min-height: 675px;
+    max-width:1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+main .buttons-cont{
     background-image: url("./images/bg-pentagon.svg");
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px;
+    height: 608px;
+    width: 600px;
+    position: relative;
 }
+
+
+
+/*Styling the buttons*/
+
+.buttons-cont .outer-circle{
+    border-radius: 50%;
+    width: 170px;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons-cont .border-cont{
+  background-color: rgb(214, 214, 214);
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -15px;
+  width: 100%;
+}
+
+.buttons-cont .border-cont:hover{
+    margin-top: 0;
+  }
+  
+.buttons-cont .border-cont .inner-circle{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -12px;
+    width: 100%;
+  }
+
+  .buttons-cont .border-cont .inner-circle:hover{
+    margin-bottom: 0;
+  }
+
+
+/*Buttons position*/
+.buttons-cont .outer-circle.lizard{
+    position: absolute;
+    bottom: 40px;
+    left: 90px;
+    background-color: var(--lizard-background-color);
+}
+
+.buttons-cont .outer-circle.paper{
+    position: absolute;
+    top: 170px;
+    right: 20px;
+    background-color:var(--paper-background-color);
+}
+
+.buttons-cont .outer-circle.scissors{
+    position: absolute;
+    top: 50px;
+    left: 210px;
+    background-color:var(--scissors-background-color);
+}
+
+.buttons-cont .outer-circle.spock{
+    position: absolute;
+    top: 170px;
+    left: 20px;
+    background-color:var(--spock-background-color);
+}
+
+.buttons-cont .outer-circle.rock{
+    position: absolute;
+    bottom: 40px;
+    right: 90px;
+    background-color:var(--rock-background-color);
+}
+
+
+/*Button border colors*/
+.buttons-cont .outer-circle.lizard .border-cont{
+    border: solid 20px var(--lizard-border-color);
+}
+
+.buttons-cont .outer-circle.paper .border-cont{
+   border: solid 20px var(--paper-border-color);
+}
+
+.buttons-cont .outer-circle.scissors .border-cont{
+    border: solid 20px var(--scissors-border-color);
+ }
+
+ .buttons-cont .outer-circle.spock .border-cont{
+    border: solid 20px var(--spock-border-color);
+ }
+
+ .buttons-cont .outer-circle.rock .border-cont{
+    border: solid 20px var(--rock-border-color);
+ }
+ 
