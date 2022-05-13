@@ -269,6 +269,7 @@ main{
 .match-result-popup{
     display: none;
     width: 22%;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -277,18 +278,18 @@ main{
    display: flex;
 }
 
-.match-result{
+.match-result-popup{
     margin-top: 60px;
     width: 100%;
     text-align: center;
 }
 
-.match-result h1{
+.match-result-popup h1{
     font-size: 2.8rem;
     color: white;
 }
 
-.match-result button{
+.match-result-popup button{
     padding: 10px 50px;
     margin-top: 10px;
     border-radius: 8px;
