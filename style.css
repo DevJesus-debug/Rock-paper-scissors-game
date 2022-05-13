@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
@@ -8,6 +11,8 @@ body{
     background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
     background-repeat: no-repeat;
     height: 100vh;
+    min-height: 900px;
+    font-family: var(--main-text);
 }
 
 :root{
@@ -21,6 +26,7 @@ body{
     --spock-border-color: hsl(189, 58%, 57%);
     --scissors-background-color:hsl(39, 88%, 42%);
     --scissors-border-color: hsl(40, 78%, 52%);
+    --main-text:'Barlow Semi Condensed', sans-serif;
 }
 
 header{
@@ -35,7 +41,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     padding: 0 35px;
-    max-width: 650px;
+    max-width: 740px;
     width: 50%;
     height: 160px;
     margin:0 auto;
@@ -50,38 +56,63 @@ nav ul {
     font-size: 1.5rem;
 }
 
+nav ul li{
+   line-height: 23px;
+   font-size: 1.7rem;
+}
+
 nav .scoreboard{
     border: solid 1px white;
-    padding: 20px 50px;
+    padding: 11px 60px;
     background-color: white;
     color: black;
-    text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
     font-size: 1rem;
     text-transform: uppercase;
     border-radius: 10px;
 }
 
-nav .scoreboard .score-number{
-    font-size: 2.7rem;
+nav .scoreboard h3{
+    color: blue;
 }
+
+nav .scoreboard .score-number p{
+    font-size: 5rem;
+    line-height: 70px;
+    color: rgb(83, 80, 80);
+}
+
+
 
 main{
     width: 100%;
-    height: 75vh;
-    min-height: 675px;
-    max-width:1000px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    height: 550px;
+    max-width: 900px;
+    width: 100%;
 }
 
-main .buttons-cont{
+
+/*Gonna add a class once a choice is made */
+
+.buttons-cont.hide-buttons{
+    display: none;
+}
+
+.buttons-cont{
+    display: block;
+    margin-top: 20px;
     background-image: url("./images/bg-pentagon.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 400px;
-    height: 608px;
-    width: 600px;
+    background-size: 350px;
+    height: 100%;
+    width: 550px;
     position: relative;
 }
 
@@ -89,16 +120,16 @@ main .buttons-cont{
 
 /*Styling the buttons*/
 
-.buttons-cont .outer-circle{
+.outer-circle{
     border-radius: 50%;
-    width: 170px;
-    height: 170px;
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.buttons-cont .border-cont{
+.border-cont{
   background-color: rgb(214, 214, 214);
   height: 100%;
   border-radius: 50%;
@@ -109,81 +140,232 @@ main .buttons-cont{
   width: 100%;
 }
 
-.buttons-cont .border-cont:hover{
+.border-cont:hover{
     margin-top: 0;
-  }
+}
   
-.buttons-cont .border-cont .inner-circle{
+.border-cont .inner-circle{
     background-color: rgb(255, 255, 255);
     height: 100%;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: -12px;
+    margin-bottom: -14px;
     width: 100%;
   }
 
-  .buttons-cont .border-cont .inner-circle:hover{
+.border-cont .inner-circle:hover{
     margin-bottom: 0;
   }
 
 
 /*Buttons position*/
-.buttons-cont .outer-circle.lizard{
+.outer-circle.lizard{
     position: absolute;
-    bottom: 40px;
-    left: 90px;
+    bottom: 30px;
+    left: 100px;
     background-color: var(--lizard-background-color);
 }
 
-.buttons-cont .outer-circle.paper{
+.outer-circle.paper{
     position: absolute;
     top: 170px;
-    right: 20px;
+    right: 30px;
     background-color:var(--paper-background-color);
 }
 
-.buttons-cont .outer-circle.scissors{
+.outer-circle.scissors{
     position: absolute;
-    top: 50px;
-    left: 210px;
+    top: 40px;
+    left: 200px;
     background-color:var(--scissors-background-color);
 }
 
-.buttons-cont .outer-circle.spock{
+.outer-circle.spock{
     position: absolute;
     top: 170px;
-    left: 20px;
+    left: 30px;
     background-color:var(--spock-background-color);
 }
 
-.buttons-cont .outer-circle.rock{
+.outer-circle.rock{
     position: absolute;
-    bottom: 40px;
-    right: 90px;
+    bottom: 30px;
+    right: 100px;
     background-color:var(--rock-background-color);
 }
 
 
 /*Button border colors*/
-.buttons-cont .outer-circle.lizard .border-cont{
+.outer-circle.lizard .border-cont{
     border: solid 20px var(--lizard-border-color);
 }
 
-.buttons-cont .outer-circle.paper .border-cont{
+.outer-circle.paper .border-cont{
    border: solid 20px var(--paper-border-color);
 }
 
-.buttons-cont .outer-circle.scissors .border-cont{
+.outer-circle.scissors .border-cont{
     border: solid 20px var(--scissors-border-color);
  }
 
- .buttons-cont .outer-circle.spock .border-cont{
+.outer-circle.spock .border-cont{
     border: solid 20px var(--spock-border-color);
  }
 
- .buttons-cont .outer-circle.rock .border-cont{
+.outer-circle.rock .border-cont{
     border: solid 20px var(--rock-border-color);
  }
- 
+
+ /*Results container*/
+.match-result-cont{
+    display: none;
+}
+
+.match-result-cont.show-match-results{
+    display: flex;
+    justify-content: center;
+    width:100%;
+    height: 100%;
+ }
+
+ h2{
+    margin-bottom: 50px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.player-choice-cont{
+     width: 35%;
+     height: 550px;
+     margin-right: 30px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+}
+
+.players-choice{
+    height: 271px;
+}
+
+.match-result-cont .outer-circle{
+    width: 270px;
+    height: 270px;
+    position:static;
+    pointer-events: none;
+}
+
+
+.match-result-cont .inner-circle img{
+    width: 80px;
+    height:100px;
+    position:static;
+}
+
+.match-result-popup{
+    display: none;
+    width: 22%;
+    align-items: center;
+    justify-content: center;
+}
+
+.match-result-popup.show-results{
+   display: flex;
+}
+
+.match-result{
+    margin-top: 60px;
+    width: 100%;
+    text-align: center;
+}
+
+.match-result h1{
+    font-size: 2.8rem;
+    color: white;
+}
+
+.match-result button{
+    padding: 10px 50px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
+    border: none;
+    font-family: var(--main-text);
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/*Match result button styles*/
+.match-result-cont .outer-circle.lizard .border-cont{
+    border: solid 35px var(--lizard-border-color);
+}
+
+.match-result-cont .outer-circle.paper .border-cont{
+    border: solid 35px var(--paper-border-color);
+}
+
+.match-result-cont .outer-circle.scissors .border-cont{
+    border: solid 35px var(--scissors-border-color);
+}
+
+.match-result-cont .outer-circle.spock .border-cont{
+    border: solid 35px var(--spock-border-color);
+}
+
+.match-result-cont .outer-circle.rock .border-cont{
+    border: solid 35px var(--rock-border-color);
+}
+
+.computer-choice-cont{
+    width: 35%;
+    height: 550px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.computer-choice-cont h2{
+    margin-bottom: 50px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.computers-choice{
+    height: 271px;
+}
+
+.computers-choice > .outer-circle{
+    display: none;
+}
+
+.computers-choice .outer-circle.show-button{
+    display: flex;
+}
+
+
+.button-cont{
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-cont button{
+    border: solid 1px white;
+    color: white;
+    text-transform: uppercase;
+    padding: 13px 40px;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    background-color: transparent;
+}
