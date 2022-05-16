@@ -52,7 +52,7 @@ function playersChoice(){
             setTimeout(function showResults(){
                 resultsPopUp.classList.add("show-results");
 
-            },1000)
+            },2000)
 
             playButton.addEventListener("click",()=>{
                 if(result.innerText === "YOU WIN"){

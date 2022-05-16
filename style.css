@@ -223,14 +223,16 @@ main{
     display: none;
 }
 
-.match-result-cont.show-match-results{
-    display: flex;
+
+ .match-result-cont.show-match-results{
+    display: grid;
+    grid-template-areas: "player result computer";
     justify-content: center;
     width:100%;
     height: 100%;
  }
 
- h2{
+ .match-result-cont h2{
     margin-bottom: 50px;
     color: white;
     text-transform: uppercase;
@@ -238,7 +240,7 @@ main{
 }
 
 .player-choice-cont{
-     width: 35%;
+     grid-area: player;
      height: 550px;
      margin-right: 30px;
      display: flex;
@@ -279,8 +281,8 @@ main{
 }
 
 .match-result-popup{
+    grid-area: result;
     display: none;
-    width: 22%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -335,7 +337,7 @@ main{
 }
 
 .computer-choice-cont{
-    width: 35%;
+    grid-area: computer;
     height: 550px;
     margin-left: 30px;
     display: flex;
@@ -451,7 +453,7 @@ body{
     background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
     background-repeat: no-repeat;
     height: 100vh;
-    min-height: 667px;
+    min-height: 690px;
     font-family: var(--main-text);
 }  
 
@@ -575,17 +577,126 @@ nav ul li{
     right: 40px;
 }
 
+.player-choice-cont{
+    margin-right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+.match-result-cont .outer-circle{
+    width: 130px;
+    height: 130px;
+    position:static;
+    pointer-events: none;
+}
+
+.match-result-cont .inner-circle img{
+    width: 40px;
+    height:60px;
+    position:static;
+}
+
+.match-result-cont.show-match-results{
+    display: grid;
+    padding-top: 30px;
+    grid-template-areas: "player computer"
+                         "result result";
+    justify-content: center;
+    width:100%;
+    height: 100%;
+ }
+
+
+ .match-result-cont h2{
+    margin-bottom: 50px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+}
+
+.player-choice-cont{
+    grid-area: player;
+    width: 100%;
+    height: auto;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.players-choice{
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.computer-choice-cont{
+    grid-area: computer;
+    height: auto;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.computers-choice{
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.match-result-popup{
+    margin-top: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/*Match result button styles*/
+.match-result-cont .outer-circle.lizard .border-cont{
+    border: solid 15px var(--lizard-border-color);
+}
+
+.match-result-cont .outer-circle.paper .border-cont{
+    border: solid 15px var(--paper-border-color);
+}
+
+.match-result-cont .outer-circle.scissors .border-cont{
+    border: solid 15px var(--scissors-border-color);
+}
+
+.match-result-cont .outer-circle.spock .border-cont{
+    border: solid 15px var(--spock-border-color);
+}
+
+.match-result-cont .outer-circle.rock .border-cont{
+    border: solid 15px var(--rock-border-color);
+}
+
+
 .button-cont{
     width: 100%;
     max-width: 1440px;
     padding: 0 50px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
 }
 
 
 .attribution{
-    margin-top: 0;
+    margin-top: 15px;
 }
 
 
