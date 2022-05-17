@@ -15,6 +15,7 @@ body{
     font-family: var(--main-text);
 }
 
+
 :root{
     --lizard-background-color:hsl(261, 73%, 60%);
     --lizard-border-color:hsl(261, 100%, 72%);
@@ -95,6 +96,7 @@ main{
     height: 550px;
     max-width: 900px;
     width: 100%;
+  
 }
 
 
@@ -250,6 +252,24 @@ main{
      position: relative;
 }
 
+
+ .circles{
+   display: none;
+   position: absolute;
+   z-index: -99;
+   bottom:-23px;
+   width: 540px;
+ }
+
+ .player-choice-cont.winner .circles{
+   display: block;
+}
+
+.computer-choice-cont.winner .circles{
+    display: block;
+ }
+
+
 .players-choice{
     height: 271px;
     width: 100%;
@@ -342,10 +362,13 @@ main{
     margin-left: 30px;
     display: flex;
     flex-direction: column;
+    background-repeat: no-repeat;
+    background-position: center;
     align-items: center;
     justify-content: center;
     position: relative;
 }
+
 
 .computer-choice-cont h2{
     margin-bottom: 50px;
@@ -356,6 +379,21 @@ main{
 
 .computers-choice{
     height: 271px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    position: relative;
+}
+
+.computers-choice .empty-circle{
+    background:hsla(212, 28%, 12%, 0.611);
+    position: absolute;
+    height: 220px;
+    border-radius: 50%;
+    width: 220px;
+    z-index: -99;
 }
 
 .computers-choice > .outer-circle{
@@ -369,7 +407,7 @@ main{
 
 .button-cont{
     width: 100%;
-    max-width: 1440px;
+    max-width: 1700px;
     padding: 0 50px;
     display: flex;
     justify-content: flex-end;
@@ -397,6 +435,7 @@ main{
 
 .rules-wrap.open-modal{
     position:fixed;
+    z-index: 99;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -406,7 +445,6 @@ main{
     right: 0;
     top: 0;
     bottom: 0;
-    right: 0;
     background-color: rgba(0, 0, 0, 0.309);
 }
 
@@ -446,7 +484,7 @@ main{
 }
 
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:810px) {
 
 
 body{
@@ -498,6 +536,7 @@ nav ul li{
     max-width: 800px;
     min-width: 375px;
     width: 100%;
+    overflow: hidden;
 }
    
 .buttons-cont{
@@ -596,7 +635,7 @@ nav ul li{
 
 .match-result-cont .inner-circle img{
     width: 40px;
-    height:60px;
+    height:45px;
     position:static;
 }
 
@@ -651,8 +690,17 @@ nav ul li{
     position: relative;
 }
 
+.computers-choice .empty-circle{
+    background:hsla(212, 28%, 12%, 0.611);
+    position: absolute;
+    height: 100px;
+    border-radius: 50%;
+    width: 100px;
+    z-index: -99;
+}
+
 .computers-choice{
-    height: auto;
+    height: 130px;
     margin-bottom: 20px;
 }
 
@@ -661,6 +709,17 @@ nav ul li{
     width: 100%;
     text-align: center;
 }
+
+.circles{
+    display: none;
+    position: absolute;
+    z-index: -99;
+    bottom:10px;
+    width: 300px;
+  }
+ 
+ 
+
 
 
 /*Match result button styles*/
@@ -699,6 +758,36 @@ nav ul li{
     margin-top: 15px;
 }
 
+.rules-cont{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-areas: "h1"
+                         "img"
+                         "close";
+    background-color:white;
+    padding: 30px 40px;
+    width:100%;
+    height: 100%;
+    border-radius:1px;
+    padding: 0;
+    border-radius: 0px;
+}
+
+.rules-cont h1{
+    grid-area: h1;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.rules-cont .close-btn{
+    grid-area: close;
+    cursor: pointer;
+    margin:0 auto;
+}
 
 
 }

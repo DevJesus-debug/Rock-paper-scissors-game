@@ -4,7 +4,9 @@ const playersButtons = document.querySelectorAll(".players-choice .outer-circle"
 const matchResultsCont = document.querySelector(".match-result-cont");
 const resultsPopUp = document.querySelector(".match-result-popup");
 const playerChoice = document.querySelector(".players-choice");
+const playerChoiceCont = document.querySelector(".player-choice-cont");
 const computerChoice = document.querySelector(".computers-choice");
+const computerChoiceCont = document.querySelector(".computer-choice-cont");
 const buttonsCont = document.querySelector(".buttons-cont");
 const result = document.querySelector(".result")
 const score = document.querySelector(".score")
@@ -12,11 +14,14 @@ const rules = document.querySelector(".rules")
 const closeButton = document.querySelector(".close-btn")
 const playButton = document.querySelector(".play-again")
 const rulesWrap = document.querySelector(".rules-wrap")
-
+const winnerCircles = document.querySelectorAll(".circles")
 let counter = 0;
+
+
 
 rules.addEventListener("click",()=>{
     rulesWrap.classList.add("open-modal")
+
 })  
 
 closeButton.addEventListener("click", ()=>{
@@ -51,15 +56,20 @@ function playersChoice(){
 
             setTimeout(function showResults(){
                 resultsPopUp.classList.add("show-results");
+                if(result.innerText === "YOU WIN"){
+                    counter++
+                    score.innerText = counter;
+                    playerChoiceCont.classList.add("winner");
+                }else if (result.innerText === "YOU LOSE"){
+                    computerChoiceCont.classList.add("winner");
+                }
 
             },2000)
 
             playButton.addEventListener("click",()=>{
-                if(result.innerText === "YOU WIN"){
-                    counter++
-                    score.innerText = counter;
-                }
-                
+                playerChoiceCont.classList.remove("winner")
+                computerChoiceCont.classList.remove("winner")
+
                 computerButtons.forEach(computerButton=>{
                     computerButton.classList.remove("show-computer-btn")
                 })
@@ -78,6 +88,7 @@ function playersChoice(){
         })
     }
 }
+
 
 
 
